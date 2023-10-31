@@ -19,6 +19,8 @@ import { useFetcher, useNavigate } from "react-router-dom";
 import gameOverSound from "../Audio/gameOver.mp3";
 import levelSuccessFulSound from "../Audio/levelSuccessful.mp3";
 import { useRef } from "react";
+import { makeStyles } from "@mui/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 const GameRoomPage = () => {
   let navigate = useNavigate();
@@ -185,9 +187,14 @@ const GameRoomPage = () => {
     setSoundEnabled(!soundEnabled);
   };
 
+  const isDesktop = useMediaQuery("(min-height:600px)");
+  const rootContainerClass = isDesktop
+    ? "root-container-wide"
+    : "root-container";
+
   return (
     <div>
-      <Navbar />
+      {isDesktop && <Navbar />}
       <Modal
         open={showModal}
         onClose={() => setShowModal(false)}
@@ -427,16 +434,8 @@ const GameRoomPage = () => {
         </Paper>
       </Modal>
 
-      <Box
-        sx={{
-          width: "95%",
-          flexDirection: { xs: "column-reverse", md: "row" },
-          justifyContent: "space-between",
-          margin: "0 auto",
-          marginTop: "3vh",
-        }}
-      >
-        <Box
+      <Box className={rootContainerClass}>
+        <Container
           sx={{
             textAlign: "center",
             width: "100%",
@@ -446,30 +445,21 @@ const GameRoomPage = () => {
             alignItems: "center",
             border: "2px solid #000",
             borderRadius: "10px",
-            marginBottom: "4%",
+            marginBottom: "2vh",
+            marginTop: "2vh",
             color: "rgba(35,177,150,255)",
           }}
         >
           <h1>Word Search Summer</h1>
-        </Box>
+        </Container>
         <Container
           class="game-room-container"
-          maxWidth="lg"
           sx={{
             backgroundImage: `url('../Images/background.jpg')`,
             backgroundSize: "cover",
           }}
         >
-          <Box
-            sx={{
-              display: "flex",
-              height: "100%",
-              width: "100%",
-              display: "flex",
-              justifyContent: "center",
-              alignSelf: "center",
-            }}
-          >
+          <Container disableGutters class="word-grid-and-list-container">
             <Container class="word-grid-container">
               <Box
                 sx={{
@@ -510,9 +500,9 @@ const GameRoomPage = () => {
                 <VerticalWordList allWords={words} foundWords={foundWords} />
               </Box>
             </Container>
-          </Box>
+          </Container>
           <Container class="score-container">
-            <Box
+            <Container
               sx={{
                 width: "35%",
                 height: "100%",
@@ -534,7 +524,7 @@ const GameRoomPage = () => {
                   sx={{
                     width: "40%",
                     height: "100%",
-                    backgroundColor: "rgb(246, 246, 122)",
+                    backgroundColor: "orange",
                     display: "flex",
                     justifyContent: "center",
                     borderRadius: "10px",
@@ -550,7 +540,7 @@ const GameRoomPage = () => {
                   sx={{
                     width: "40%",
                     height: "100%",
-                    backgroundColor: "rgb(246, 246, 122)",
+                    backgroundColor: "orange",
                     display: "flex",
                     justifyContent: "center",
                     borderRadius: "10px",
@@ -576,7 +566,7 @@ const GameRoomPage = () => {
                   </Container>
                 </Container>
               </Container>
-            </Box>
+            </Container>
             <Box
               sx={{
                 width: "0.5%",
@@ -584,13 +574,15 @@ const GameRoomPage = () => {
                 borderLeft: "2px solid #000",
                 height: "100%",
                 borderRadius: "10px",
-                background: "rgb(246, 246, 122)",
+                background: "orange",
                 boxShadow: "2px 2px 5px rgba(0, 0, 0, 0.2)",
               }}
             ></Box>
-            <Box sx={{ width: "7%", height: "100%", borderRadius: "10px" }}>
+            <Container
+              sx={{ width: "7%", height: "100%", borderRadius: "10px" }}
+            >
               <Container disableGutters sx={{ width: "30%" }}></Container>
-            </Box>
+            </Container>
             <Box
               sx={{
                 width: "0.5%",
@@ -598,11 +590,11 @@ const GameRoomPage = () => {
                 borderLeft: "2px solid #000",
                 height: "100%",
                 borderRadius: "10px",
-                background: "rgb(246, 246, 122)",
+                background: "orange",
                 boxShadow: "2px 2px 5px rgba(0, 0, 0, 0.2)",
               }}
             ></Box>
-            <Box
+            <Container
               sx={{
                 width: "9%",
                 height: "100%",
@@ -632,7 +624,7 @@ const GameRoomPage = () => {
                   }}
                 ></img>
               </Container>
-            </Box>
+            </Container>
             <Box
               sx={{
                 width: "0.5%",
@@ -640,13 +632,13 @@ const GameRoomPage = () => {
                 borderLeft: "2px solid #000",
                 height: "100%",
                 borderRadius: "10px",
-                background: "rgb(246, 246, 122)",
+                background: "orange",
                 boxShadow: "2px 2px 5px rgba(0, 0, 0, 0.2)",
               }}
             ></Box>
-            <Box
+            <Container
               sx={{ width: "7%", height: "100%", borderRadius: "10px" }}
-            ></Box>
+            ></Container>
             <Box
               sx={{
                 width: "0.5%",
@@ -654,11 +646,11 @@ const GameRoomPage = () => {
                 borderLeft: "2px solid #000",
                 height: "100%",
                 borderRadius: "10px",
-                background: "rgb(246, 246, 122)",
+                background: "orange",
                 boxShadow: "2px 2px 5px rgba(0, 0, 0, 0.2)",
               }}
             ></Box>
-            <Box
+            <Container
               sx={{
                 width: "40%",
                 height: "100%",
@@ -681,7 +673,7 @@ const GameRoomPage = () => {
                   sx={{
                     width: "100%",
                     height: "100%",
-                    backgroundColor: "rgb(246, 246, 122)",
+                    backgroundColor: "orange",
                     borderRadius: "10px",
                     display: "flex",
                     justifyContent: "center",
@@ -712,7 +704,7 @@ const GameRoomPage = () => {
                   sx={{
                     width: "100%",
                     height: "100%",
-                    backgroundColor: "rgb(246, 246, 122)",
+                    backgroundColor: "orange",
                     borderRadius: "10px",
                     display: "flex",
                     justifyContent: "center",
@@ -736,7 +728,7 @@ const GameRoomPage = () => {
                   sx={{
                     width: "100%",
                     height: "100%",
-                    backgroundColor: "rgb(246, 246, 122)",
+                    backgroundColor: "orange",
                     borderRadius: "10px",
                     display: "flex",
                     justifyContent: "center",
@@ -750,7 +742,7 @@ const GameRoomPage = () => {
                   </IconButton>
                 </Container>
               </Container>
-            </Box>
+            </Container>
           </Container>
         </Container>
       </Box>

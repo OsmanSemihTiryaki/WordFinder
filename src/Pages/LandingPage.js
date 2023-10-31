@@ -10,7 +10,6 @@ import logo from "../Images/logo.jpg";
 const LandingPage = () => {
   let navigate = useNavigate();
   var text1 = "Word Search";
-  var text2 = "Wana give it a shot?";
 
   return (
     <div>

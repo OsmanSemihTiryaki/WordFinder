@@ -12,7 +12,7 @@ const VerticalWordList = ({ allWords, foundWords }) => {
           <Box sx={{ width: "50%", alignItems: "center" }}>
             <label
               style={{
-                fontSize: "1vw",
+                fontSize: "100%",
                 fontFamily: "serif",
                 fontWeight: "bold",
               }}
