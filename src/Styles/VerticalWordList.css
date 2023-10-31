@@ -1,0 +1,29 @@
+.vertical-word-list {
+    max-height: 100%; /* Match the height with the grid */
+    overflow-y: auto; /* Add scroll if the content overflows */
+     /* Add a border for visual separation */
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+
+    
+  }
+  
+  .vertical-word-list-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000; /* Add a border between items */
+    width: 100%;
+    margin: auto;
+    align-self: center;
+    border-radius: 10px;
+    background-color: rgb(246, 246, 122);
+    color: darkblue;
+    font-weight: bolder;
+    
+  }
