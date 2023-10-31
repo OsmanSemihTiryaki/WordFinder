@@ -28,3 +28,29 @@
     border-top: "0px";
     border-radius: 10px;
   }
+
+  .word-grid-and-list-container{
+    display: flex;
+    flex-direction: auto;
+    height: 100%;
+    justify-content: center;
+    width: 100%;
+    align-self: center;
+  }
+
+  .root-container {
+    width: 95%;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto;
+    margin-top: 3vh;
+  }
+  
+  .root-container-wide {
+    min-width: 1200px;
+    width: 95%;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto;
+    margin-top: 3vh;
+  }
